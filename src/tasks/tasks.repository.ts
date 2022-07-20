@@ -8,7 +8,7 @@ import { Task } from './task.entity';
 
 @EntityRepository(Task)
 export class TasksRepository extends Repository<Task> {
-  private logger = new Logger('TasksRepository');
+  private logger = new Logger('TasksRepository', { timestamp: true });
 
   getTasks(filterTasksDto: GetTasksFilterDto, user: User): Promise<Task[]> {
     const { status, search } = filterTasksDto;
@@ -50,6 +50,12 @@ export class TasksRepository extends Repository<Task> {
       user,
     });
 
+    this.logger.verbose(
+      `task for "${user.username}" has been created. Data: ${JSON.stringify(
+        createTaskDto,
+      )}`,
+    );
+
     try {
       const newTask = this.save(task);
       return newTask;
@@ -62,6 +68,5 @@ export class TasksRepository extends Repository<Task> {
       );
       throw new InternalServerErrorException();
     }
-    return task;
   }
 }
