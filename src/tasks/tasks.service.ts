@@ -6,8 +6,7 @@ import { NotFoundException } from '@nestjs/common';
 import { TasksRepository } from './tasks.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from './task.entity';
-import { DeleteResult } from 'typeorm';
-import { User } from 'src/auth/users.entity';
+import { User } from '../auth/users.entity';
 
 @Injectable()
 export class TasksService {

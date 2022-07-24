@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { User } from 'src/auth/users.entity';
+import { User } from '../auth/users.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { TaskStatus } from './task-status.enum';
 
