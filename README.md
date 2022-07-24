@@ -26,6 +26,14 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Built with
+
+- Typescript
+- Nestjs
+- Postgresql
+- TypeORM
+- Heroku
+
 ## Installation
 
 ```bash
